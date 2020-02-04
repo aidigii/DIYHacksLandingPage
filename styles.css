@@ -104,6 +104,7 @@ body {
   -webkit-transition: opacity 0.3s ease-out;
   transition: opacity 0.3s ease-out;
   will-change: opacity;
+  overflow-x: hidden;
   position: absolute;
   top: 0;
   bottom: 0;
