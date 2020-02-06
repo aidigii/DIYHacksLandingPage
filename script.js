@@ -60,6 +60,7 @@ $(function() {
         delay: 200,
         loop: true
     });
+
     /*FOR FUTURE USE: when we figure out how to infinitly scroll images and load back images 
     when they get off screen. For now, an easier animation.
     //Cheking for off-screen images and re-placing them
@@ -144,18 +145,20 @@ $(function() {
     var clickCounter = 0;
     $("#slackCheck").click(function() {
         $("#slackEmailRow").toggle(200).css("display", "flex");
-        $("#invisible").animate({
-            "height": "80%",
-            "top": "10%"
-        }, 400);
-        clickCounter++;
-
-        if (clickCounter == 2) {
+        if ($(window).width() > 900) {
             $("#invisible").animate({
-                "height": "60%",
-                "top": "20%"
-            }, 400);
-            clickCounter = 0;
+                "height": "80%",
+                "top": "10%"
+            }, 300);
+            clickCounter++;
+
+            if (clickCounter == 2) {
+                $("#invisible").animate({
+                    "height": "60%",
+                    "top": "20%"
+                }, 300);
+                clickCounter = 0;
+            }
         }
     });
     //Loading in mail form
@@ -163,7 +166,7 @@ $(function() {
         $("#blur").removeClass("inactive-blur").addClass("active-blur");
         $("#invisible").removeClass("inactive-mailing").addClass("active-mailing");
     })
-    $("#closeMail").click(function() {
+    $(".closeMail").click(function() {
         $("#blur").removeClass("active-blur").addClass("inactive-blur");
         $("#invisible").removeClass("active-mailing").addClass("inactive-mailing");
     });
